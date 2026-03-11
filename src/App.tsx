@@ -1,4 +1,15 @@
 import React, { Suspense, useMemo, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import {
+  Float,
+  OrbitControls,
+  RoundedBox,
+  Sphere,
+  Text,
+  Environment,
+  MeshDistortMaterial,
+} from "@react-three/drei";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Award,
