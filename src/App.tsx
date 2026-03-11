@@ -14,7 +14,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Rocket,
   Server,
   Shield,
   Sparkles,
