@@ -1,12 +1,10 @@
 import React, { Suspense, useMemo, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, OrbitControls, RoundedBox, Sphere, Text, Environment, MeshDistortMaterial } from "@react-three/drei";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   Award,
   Briefcase,
   Cloud,
+  Cpu,
   Database,
   Github,
   GraduationCap,
@@ -14,8 +12,9 @@ import {
   Mail,
   MapPin,
   Phone,
+  Radar,
   Server,
-  Shield,
+  Sparkles,
   Workflow,
 } from "lucide-react";
 
@@ -100,6 +99,14 @@ const metrics = [
   { value: "1M+", label: "Users" },
   { value: "11M+", label: "Subscribers" },
   { value: "95–100%", label: "Coverage" },
+];
+
+const architecture = [
+  { title: "Client Apps", icon: Cpu },
+  { title: "API Gateway", icon: Radar },
+  { title: "Identity / KYC", icon: Server },
+  { title: "Core Services", icon: Workflow },
+  { title: "Data / Monitoring", icon: Database },
 ];
 
 function HeroCore() {
@@ -317,7 +324,7 @@ export default function App() {
 
         <section className="section"><div className="label">Highlights</div><h3>Impact metrics</h3><div className="stats">{metrics.map((m) => <HoverCard key={m.label} className="stat"><strong>{m.value}</strong><span>{m.label}</span></HoverCard>)}</div></section>
 
-        <section className="section" id="architecture"><div className="label">Architecture</div><h3>System flow</h3><div className="archWrap"><div className="archCanvas"><ArchitectureScene /></div><div className="archBox"><div className="panel" style={{ padding: 0, background: 'transparent', border: 'none', backdropFilter: 'none' }}>PayPal, Walmart, and Ericsson work all point to the same core strengths: service orchestration, reliability, testing discipline, cloud delivery, and backend systems that scale cleanly.</div><div className="archList">{architecture.map((n) => { const Icon = n.icon; return <HoverCard key={n.title} className="archPill"><Icon size={18} /><span>{n.title}</span></HoverCard>; })}</div></div></div></section>
+        <section className="section" id="architecture"><div className="label">Architecture</div><h3>System flow</h3><div className="archWrap"><div className="archCanvas"><ArchitectureScene /></div><div className="archBox"><div className="panel" style={{ padding: 0, background: 'transparent', border: 'none', backdropFilter: 'none' }}>PayPal, Walmart, and Ericsson work all point to the same core strengths: service orchestration, reliability, testing discipline, cloud delivery, and backend systems that scale cleanly.</div><div className="archList">{architecture.map((n: { title: string; icon: React.ComponentType<{ size?: number }> }) => { const Icon = n.icon; return <HoverCard key={n.title} className="archPill"><Icon size={18} /><span>{n.title}</span></HoverCard>; })}</div></div></div></section>
 
         <section className="section" id="experience"><div className="label">Experience</div><h3>Professional experience</h3><div className="xps">{experience.map((exp) => <HoverCard key={exp.company} className={`xp ${exp.color}`}><div className="xtop"><div><h4 className="xtitle">{exp.company}</h4><div className="xrole">{exp.role}</div><div className="meta"><span className="pill"><Briefcase size={12} /> {exp.period}</span><span className="pill"><MapPin size={12} /> {exp.location}</span></div></div><div className="pill">{exp.metric}</div></div><div className="bullets">{exp.points.map((p) => <div key={p} className="b"><span className="dot" /><span>{p}</span></div>)}</div></HoverCard>)}</div></section>
 
