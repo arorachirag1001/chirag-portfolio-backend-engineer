@@ -14,7 +14,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Play,
   Radar,
   Server,
   Shield,
