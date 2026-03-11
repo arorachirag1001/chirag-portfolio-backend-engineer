@@ -499,7 +499,7 @@ export default function App() {
         <section className="section">
           <SectionTitle label="Highlights" title="Impact metrics" />
           <div className="stats-row">
-            {stats.map((stat, i) => (
+          {stats.map((stat) => (
               <TiltCard key={stat.label} className="stat">
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
